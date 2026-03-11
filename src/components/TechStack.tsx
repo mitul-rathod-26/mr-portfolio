@@ -12,7 +12,7 @@ import {
 } from "@react-three/rapier";
 
 const textureLoader = new THREE.TextureLoader();
-const imageUrls = [
+const webpUrls = [
   "/images/react2.webp",
   "/images/next2.webp",
   "/images/node2.webp",
@@ -22,11 +22,66 @@ const imageUrls = [
   "/images/typescript.webp",
   "/images/javascript.webp",
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
+
+// SVG logos to render as white-on-dark canvas textures
+const svgLogoUrls = [
+  "/images/android2.svg",
+  "/images/flutter2.svg",
+  "/images/git2.svg",
+  "/images/github2.svg",
+];
+
+function makeSvgCanvasTexture(svgUrl: string): THREE.CanvasTexture {
+  const SIZE = 256;
+  const canvas = document.createElement("canvas");
+  canvas.width = SIZE;
+  canvas.height = SIZE;
+  const ctx = canvas.getContext("2d")!;
+
+  // Draw the dark circular background immediately (visible while SVG loads)
+  ctx.fillStyle = "#111827";
+  ctx.beginPath();
+  ctx.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
+  ctx.fill();
+
+  const texture = new THREE.CanvasTexture(canvas);
+
+  const img = new Image();
+  img.onload = () => {
+    // Redraw background
+    ctx.clearRect(0, 0, SIZE, SIZE);
+    ctx.fillStyle = "#111827";
+    ctx.beginPath();
+    ctx.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Draw the SVG icon centered with padding
+    const pad = SIZE * 0.18;
+    const iconSize = SIZE - pad * 2;
+    ctx.save();
+    ctx.drawImage(img, pad, pad, iconSize, iconSize);
+
+    // Tint the icon white using source-atop composite
+    ctx.globalCompositeOperation = "source-atop";
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, SIZE, SIZE);
+    ctx.restore();
+
+    texture.needsUpdate = true;
+  };
+  img.src = svgUrl;
+
+  return texture;
+}
+
+const textures: THREE.Texture[] = [
+  ...webpUrls.map((url) => textureLoader.load(url)),
+  ...svgLogoUrls.map((url) => makeSvgCanvasTexture(url)),
+];
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(30)].map(() => ({
+const spheres = [...Array(45)].map(() => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
 }));
 

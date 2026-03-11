@@ -43,7 +43,7 @@ const Contact = () => {
             >
               Twitter <MdArrowOutward />
             </a>
-            
+
           </div>
           <div className="contact-box">
             <h2>

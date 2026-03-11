@@ -64,28 +64,11 @@ const WhatIDo = () => {
           >
             <div className="what-border1">
               <svg height="100%">
-                <line
-                  x1="0"
-                  y1="0"
-                  x2="100%"
-                  y2="0"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
+                <line x1="0" y1="0" x2="100%" y2="0" stroke="white" strokeWidth="2" strokeDasharray="6,6" />
+                <line x1="0" y1="100%" x2="100%" y2="100%" stroke="white" strokeWidth="2" strokeDasharray="6,6" />
               </svg>
             </div>
             <div className="what-corner"></div>
-
             <div className="what-content-in">
               <h3>FRONTEND</h3>
               <h4>Building Interactive UIs</h4>
@@ -107,41 +90,74 @@ const WhatIDo = () => {
               <div className="what-arrow"></div>
             </div>
           </div>
+
           <div
             className="what-content what-noTouch"
             ref={(el) => setRef(el, 1)}
           >
             <div className="what-border1">
               <svg height="100%">
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
+                <line x1="0" y1="100%" x2="100%" y2="100%" stroke="white" strokeWidth="2" strokeDasharray="6,6" />
               </svg>
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>BACKEND</h3>
-              <h4>Scalable Server Architecture</h4>
+              <h3>MOBILE APP</h3>
+              <h4>Building Cross-Platform Mobile Apps</h4>
               <p>
-                Designing robust APIs and microservices. From CMS platforms to
-                complex business logic, I build backends that scale.
+                Crafting performant, responsive mobile applications using modern frameworks.
+                Delivering pixel-perfect, high-quality user experiences for both iOS and Android.
+              </p>
+              <h5>Skillset & tools</h5>
+              <div className="what-content-flex">
+                <div className="what-tags">Flutter</div>
+                <div className="what-tags">Dart</div>
+                <div className="what-tags">Android</div>
+                <div className="what-tags">GetX</div>
+                <div className="what-tags">Postman API</div>
+                <div className="what-tags">State Management</div>
+                <div className="what-tags">Firebase</div>
+                <div className="what-tags">UI/UX</div>
+              </div>
+              <div className="what-arrow"></div>
+            </div>
+          </div>
+
+          <div
+            className="what-content what-noTouch"
+            ref={(el) => setRef(el, 2)}
+          >
+            <div className="what-border1">
+              <svg height="100%">
+                <line x1="0" y1="100%" x2="100%" y2="100%" stroke="white" strokeWidth="2" strokeDasharray="6,6" />
+              </svg>
+            </div>
+            <div className="what-corner"></div>
+            <div className="what-content-in">
+              <h3>BACKEND & ML</h3>
+              <h4>Robust Servers & Data Science</h4>
+              <p>
+                Designing robust APIs, scalable microservices, and leveraging data analytics & machine learning.
+                Aiming to solve real-world problems with impactful technological solutions.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">Node.js</div>
                 <div className="what-tags">NestJS</div>
                 <div className="what-tags">Express.js</div>
-                <div className="what-tags">MongoDB</div>
+                <div className="what-tags">Python</div>
+                <div className="what-tags">Java</div>
+                <div className="what-tags">ASP.NET MVC</div>
+                <div className="what-tags">Spring Boot</div>
                 <div className="what-tags">PostgreSQL</div>
+                <div className="what-tags">MongoDB</div>
+                <div className="what-tags">SQL</div>
                 <div className="what-tags">REST APIs</div>
                 <div className="what-tags">Microservices</div>
-                <div className="what-tags">Python</div>
+                <div className="what-tags">AIML</div>
+                <div className="what-tags">Data Science</div>
+                <div className="what-tags">Data Analytics</div>
+                <div className="what-tags">Git/GitHub</div>
               </div>
               <div className="what-arrow"></div>
             </div>

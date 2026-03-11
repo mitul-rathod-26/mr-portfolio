@@ -73,7 +73,7 @@ const SocialIcons = () => {
             <FaXTwitter />
           </a>
         </span>
-       
+
       </div>
       <a className="resume-button" href="#">
         <HoverLinks text="RESUME" />
